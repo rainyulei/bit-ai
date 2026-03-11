@@ -2,6 +2,7 @@ pub mod error;
 pub mod model;
 pub mod provider;
 pub mod providers;
+pub mod registry;
 pub mod sse;
 pub mod types;
 
@@ -36,4 +37,9 @@ pub async fn list_models(provider: &str) -> Result<Vec<ModelInfo>> {
 /// Register a custom provider.
 pub fn register_provider(provider: std::sync::Arc<dyn Provider>) {
     model::register_provider(provider);
+}
+
+/// Initialize bit-ai: auto-register providers from environment variables.
+pub fn init() {
+    registry::auto_register();
 }
