@@ -1,6 +1,8 @@
 pub mod error;
 pub mod model;
 pub mod provider;
+pub mod providers;
+pub mod sse;
 pub mod types;
 
 pub use error::{BitAiError, Result};
